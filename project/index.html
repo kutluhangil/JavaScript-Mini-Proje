@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Mini Project - CRUD</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- iziToast CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css"
+    integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Yönetim Paneli</h1>
+      <p>Kullanıcıları ve Gönderileri Yönet</p>
+    </header>
+
+    <section class="section users-section">
+      <div class="section-header">
+        <h2>Kullanıcılar</h2>
+        <button id="load-users" class="btn primary">Kullanıcıları Getir</button>
+      </div>
+      <div id="user-list" class="grid-list"></div>
+    </section>
+
+    <hr />
+
+    <section class="section posts-section">
+      <div class="section-header">
+        <h2>Gönderiler</h2>
+        <div class="actions">
+          <!-- Initial posts loaded by script logic usually, but keep button if manual trigger wanted -->
+          <!-- <button id="load-posts" class="btn secondary">Reset Posts</button> -->
+        </div>
+      </div>
+
+      <div class="create-post-container">
+        <h3>Yeni Gönderi Oluştur</h3>
+        <form id="post-form">
+          <div class="form-group">
+            <input type="text" name="title" placeholder="Başlık" required />
+          </div>
+          <div class="form-group">
+            <textarea name="body" placeholder="İçerik..." rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn success">Paylaş</button>
+        </form>
+      </div>
+
+      <div id="post-list" class="card-list">
+        <!-- Posts will be injected here -->
+      </div>
+
+      <div class="load-more-container">
+        <button id="load-more" class="btn outline">Daha Fazla Yükle</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- iziToast JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"
+    integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWCNpf07qljZgjOA5+CYKl/F80yow1g9LiXQhWr6n/8dfkM5g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- App JS -->
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>
