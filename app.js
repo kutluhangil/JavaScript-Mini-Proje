@@ -1,4 +1,4 @@
-import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js";
+import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
 
 // --- Ayarlar ---
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
@@ -14,8 +14,26 @@ const postForm = document.querySelector("#post-form");
 
 // --- Bildirim Fonksiyonu ---
 const notify = (type, message) => {
+  let title;
+  switch (type) {
+    case "success":
+      title = "Başarılı";
+      break;
+    case "error":
+      title = "Hata";
+      break;
+    case "warning":
+      title = "Uyarı";
+      break;
+    case "info":
+      title = "Bilgi";
+      break;
+    default:
+      title = "Bildirim";
+  }
+
   iziToast[type]({
-    title: type === "success" ? "Başarılı" : "Hata",
+    title: title,
     message: message,
     position: "topRight",
     timeout: 3000,
